@@ -1,27 +1,34 @@
 """
 My little Stack
 """
+import random
 from typing import Any
-
 #test tamp help git.
+spis_1 = [1, 2, 3, 4, 5]
 
 def push(elem: Any) -> None:
     """
     Operation that add element to stack
-
     :param elem: element to be pushed
     :return: Nothing
     """
-    print(elem)
+    global spis_1
+    spis_1.append(random.randint(10))
+    print(spis_1)
     return None
 
 
 def pop() -> Any:
     """
     Pop element from the top of the stack. If not elements - should return None.
-
     :return: popped element
     """
+    global spis_1
+    n = 0
+    for i in spis_1:
+        print(i)
+        spis_1.append(spis_1.pop(0))
+        n += 1
     return None
 
 
