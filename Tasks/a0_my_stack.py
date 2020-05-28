@@ -45,12 +45,11 @@ def peek(ind: int = 0) -> Any:
     :return: peeked element or None if no element in this place
     """
     global spis_1
-    for i in range(len(spis_1)):
-        if ind < len(spis_1):
-            print(ind, spis_1[ind])
-            return spis_1[ind]
-        else:
-            return None
+    if ind < len(spis_1):
+        print(ind, spis_1[ind])
+        return spis_1[ind]
+    else:
+        return None
 
 
 def clear() -> None:
