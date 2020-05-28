@@ -3,8 +3,8 @@ My little Stack
 """
 
 from typing import Any
-#test tamp help git.
-spis_1 = [1, 2, 3, 4, 5]
+
+spis_1 = []
 
 def push(elem: Any) -> None:
     """
@@ -13,10 +13,15 @@ def push(elem: Any) -> None:
     :return: Nothing
     """
     global spis_1
-    spis_1.append(elem)
-    print(spis_1)
-    return None
-
+    spis_1 = [i for i in range(20)]
+    for i in range(len(spis_1)):
+        if i == len(spis_1) - 1:
+            spis_1.append(elem)
+            print(spis_1)
+            return spis_1
+        else:
+            continue
+            return None
 
 def pop() -> Any:
     """
@@ -25,9 +30,10 @@ def pop() -> Any:
     """
     global spis_1
     if len(spis_1) >= 1:
-        el_0 = (spis_1[0])
-        del spis_1[0]
-        return el_0
+        el_p = (spis_1[len(spis_1)-1])
+        del spis_1[len(spis_1)-1]
+        print(spis_1)
+        return el_p
     else:
         return None
 
@@ -39,11 +45,12 @@ def peek(ind: int = 0) -> Any:
     :return: peeked element or None if no element in this place
     """
     global spis_1
-    if ind < len(spis_1):
-        print(ind, spis_1[ind])
-        return spis_1[ind]
-    else:
-        return None
+    for i in range(len(spis_1)):
+        if ind < len(spis_1):
+            print(ind, spis_1[ind])
+            return spis_1[ind]
+        else:
+            return None
 
 
 def clear() -> None:
@@ -53,10 +60,4 @@ def clear() -> None:
     """
     global spis_1
     clear(spis_1)
-    print(spis_1)
     return None
-
-if __name__ == '__main__':
-    push(6)
-    pop()
-    peek(2)
