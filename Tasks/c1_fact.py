@@ -4,8 +4,16 @@ def factorial_recursive(n: int) -> int:
     :param n: int > 0
     :return: factorial of n
     """
-    print(n)
-    return 0
+    f_1 = 1
+    if n >= 0:
+        if n == 0:
+            return f_1
+        if n != 0:
+            for i in range(1, n+1):
+                f_1 = f_1 * i
+            return  f_1
+    else:
+        return 0
 
 
 def factorial_iterative(n: int) -> int:
