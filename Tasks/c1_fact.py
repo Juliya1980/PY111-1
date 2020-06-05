@@ -4,24 +4,28 @@ def factorial_recursive(n: int) -> int:
     :param n: int > 0
     :return: factorial of n
     """
-    f_1 = 1
-    if n >= 0:
-        if n == 0:
-            return f_1
-        if n != 0:
-            for i in range(1, n+1):
-                f_1 = f_1 * i
-            return  f_1
+    if n < 0:
+        raise ValueError ('Факториал отрицательного числа не существует')
+    elif n in (0, 1):
+        return 1
     else:
-        return 0
+        return factorial_recursive(n-1) * n
 
 
 def factorial_iterative(n: int) -> int:
     """
     Calculate factorial of number n (> 0) in iterative way
-
     :param n: int > 0
     :return: factorial of n
     """
-    print(n)
-    return 0
+    f_1 = 1
+    if n < 0:
+        raise ValueError ('Факториал отрицательного числа не существует')
+    elif n in (0, 1):
+        return 1
+    elif n > 1:
+        while n >= 2:
+            f_1 = f_1 * n
+            n -= 1
+        return f_1
+
