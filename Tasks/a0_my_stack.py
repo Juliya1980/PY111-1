@@ -3,7 +3,6 @@ My little Stack
 """
 
 from typing import Any
-
 spis_1 = []
 
 def push(elem: Any) -> None:
@@ -13,11 +12,8 @@ def push(elem: Any) -> None:
     :return: Nothing
     """
     global spis_1
-    if len(spis_1) >= 1:
-        spis_1.append(elem)
-        return spis_1
-    else:
-        return None
+    spis_1.append(elem)
+    return spis_1
 
 
 def pop() -> Any:
@@ -26,7 +22,7 @@ def pop() -> Any:
     :return: popped element
     """
     global spis_1
-    if len(spis_1) >= 1:
+    if len(spis_1) > 0:
         el_p = spis_1[-1]
         del spis_1[-1]
         return el_p
@@ -41,28 +37,33 @@ def peek(ind: int = 0) -> Any:
     :return: peeked element or None if no element in this place
     """
     global spis_1
-    if ind <= len(spis_1):
+    if type(ind) == int:
         if len(spis_1) == 0:
             return None
+        if ind >= len(spis_1):
+            return None
         else:
-            a = spis_1[ind]
-            print(ind, a)
-            return a
-    elif ind < 0:
-        return None
+            a = spis_1[::-1]
+            return a[ind]
     else:
-        return None
+        raise ValueError('Введите целое положительное число')
 
 
 def clear() -> None:
     """
     Clear my stack
-
     :return: None
     """
     global spis_1
-    if len(spis_1) >= 1:
-        clear(spis_1)
-        return spis_1
-    else:
-        return None
+    if len(spis_1) > 0:
+        spis_1.clear()
+    return None
+
+if __name__ == '__main__':
+    push(1)
+    push(2)
+    push(3)
+    push(4)
+    pop()
+    print(peek(1))
+    print(spis_1)
