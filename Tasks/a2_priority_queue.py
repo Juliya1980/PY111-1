@@ -7,6 +7,7 @@ from typing import Any
 
 spis_1 = []
 
+
 def enqueue(elem: Any, priority: int = 0) -> None:
     """
     Operation that add element to the end of the queue

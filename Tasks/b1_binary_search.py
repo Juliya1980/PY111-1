@@ -10,7 +10,6 @@ def binary_search(elem: int, arr: Sequence) -> Optional[int]:
     """
     ind_l = 0
     ind_r = len(arr)
-
     while ind_r != ind_l + 1:
         ind_m = (ind_l + ind_r) // 2
         if elem > arr[ind_m]:

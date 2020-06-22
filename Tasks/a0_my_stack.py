@@ -5,6 +5,7 @@ My little Stack
 from typing import Any
 spis_1 = []
 
+
 def push(elem: Any) -> None:
     """
     Operation that add element to stack
